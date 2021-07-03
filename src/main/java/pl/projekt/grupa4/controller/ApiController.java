@@ -13,7 +13,6 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -145,9 +144,14 @@ public class ApiController {
     }
 
     @GetMapping("/projektystudenta/{id}")
-    public Flux<ProjektStudent> projektyStudenta(@PathVariable("id") int idStudent)
-    {
+    public Flux<ProjektStudent> projektyStudenta(@PathVariable("id") int idStudent) {
         return projektService.studentsProjects(idStudent);
+    }
+
+    //usunięcie zadania na podstawie id
+    @DeleteMapping("/usunzadanie/{id}")
+    public Mono<Integer> usunZadanie(@PathVariable("id") int idZadanie) {
+        return zadanieService.deleteZadanie(idZadanie);
     }
 
     private static LocalDate stringToDate(String date) {
