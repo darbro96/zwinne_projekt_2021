@@ -154,6 +154,22 @@ public class ApiController {
         return zadanieService.deleteZadanie(idZadanie);
     }
 
+    //zakończenie zadania
+    @GetMapping("/zakoncz/{id}")
+    public Mono<Integer> zakonczZadanie(@PathVariable("id") int idZadania) {
+        Zadanie zadanie = zadanieService.getZadanie(idZadania).toProcessor().block();
+        zadanie.setSkonczone(true);
+        return zadanieService.updateZadanie(zadanie);
+    }
+
+    //nieukończenie zadania
+    @GetMapping("/niezakonczone/{id}")
+    public Mono<Integer> zadanieNieukonczone(@PathVariable("id") int idZadania) {
+        Zadanie zadanie = zadanieService.getZadanie(idZadania).toProcessor().block();
+        zadanie.setSkonczone(false);
+        return zadanieService.updateZadanie(zadanie);
+    }
+
     private static LocalDate stringToDate(String date) {
         int y = Integer.parseInt(date.substring(0, 4));
         int m = Integer.parseInt(date.substring(5, 7));

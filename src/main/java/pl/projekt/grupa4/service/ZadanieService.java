@@ -26,7 +26,9 @@ public class ZadanieService {
             .kolejnosc(row.get("kolejnosc", Integer.class))
             .dataczasOddania(row.get("dataczas_oddania", LocalDateTime.class))
             .opis(row.get("opis", String.class))
-            .projektId(row.get("projekt_id",Integer.class)).build();
+            .projektId(row.get("projekt_id", Integer.class))
+            .skonczone(row.get("skonczone", Boolean.class))
+            .build();
 
     public ZadanieService(R2dbcEntityTemplate template, TransactionalOperator transactionalOperator) {
         this.transactionalOperator = transactionalOperator;
@@ -66,7 +68,8 @@ public class ZadanieService {
                         .set("kolejnosc", zadanie.getKolejnosc())
                         .set("dataczas_oddania", zadanie.getDataczasOddania())
                         .set("opis", zadanie.getOpis())
-                        .set("projekt_id", zadanie.getProjektId()),
+                        .set("projekt_id", zadanie.getProjektId())
+                        .set("skonczone", zadanie.isSkonczone()),
                 Zadanie.class);
     }
 

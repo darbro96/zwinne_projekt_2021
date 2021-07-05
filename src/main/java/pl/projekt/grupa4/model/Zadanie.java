@@ -1,12 +1,10 @@
 package pl.projekt.grupa4.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -19,7 +17,7 @@ import java.time.LocalDateTime;
 @Table("zadanie")
 public class Zadanie {
     @Id
-   // @GeneratedValue
+    // @GeneratedValue
     @Column("zadanie_id")
     private Integer zadanieId;
     @Column("nazwa")
@@ -32,4 +30,6 @@ public class Zadanie {
     private LocalDateTime dataczasOddania;
     @Column("projekt_id")
     private int projektId;
+    @Column("skonczone")
+    private boolean skonczone;
 }
