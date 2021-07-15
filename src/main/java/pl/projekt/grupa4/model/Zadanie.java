@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @Table("zadanie")
 public class Zadanie {
     @Id
-    // @GeneratedValue
     @Column("zadanie_id")
     private Integer zadanieId;
     @Column("nazwa")

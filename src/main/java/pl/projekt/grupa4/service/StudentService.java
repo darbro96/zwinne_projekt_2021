@@ -53,7 +53,6 @@ public class StudentService {
     public Mono<Student> createStudent(Student student) {
         return this.entityTemplate.insert(Student.class)
                 .using(student);
-//.map(s -> s.getId());
     }
 
     public Mono<Integer> updateStudent(Student student) {

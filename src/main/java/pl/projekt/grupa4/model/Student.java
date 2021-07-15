@@ -16,7 +16,6 @@ import org.springframework.data.relational.core.mapping.Table;
 public class Student {
 
     @Id
-    //@GeneratedValue
     @Column("student_id")
     private Integer studentId;
     @Column("imie")

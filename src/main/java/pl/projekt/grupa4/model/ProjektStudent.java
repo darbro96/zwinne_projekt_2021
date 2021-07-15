@@ -15,8 +15,8 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("projekt_student")
 public class ProjektStudent {
     @Id
-    @Column("id_projekt") // tylko jeżeli nazwa kolumny w bazie danych ma być inna od nazwy zmiennej
+    @Column("id_projekt")
     private Integer projektId;
-    @Column("id_student") // tylko jeżeli nazwa kolumny w bazie danych ma być inna od nazwy zmiennej
+    @Column("id_student")
     private Integer studentId;
 }

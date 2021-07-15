@@ -21,8 +21,7 @@ import java.util.Set;
 @Table("projekt")
 public class Projekt {
     @Id
-    //@GeneratedValue
-    @Column("projekt_id") // tylko jeżeli nazwa kolumny w bazie danych ma być inna od nazwy zmiennej
+    @Column("projekt_id")
     private Integer projektId;
     @Column("nazwa")
     private String nazwa;
