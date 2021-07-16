@@ -114,8 +114,8 @@ public class ApiController {
         return studentService.updateStudent(student);
     }
 
-    @DeleteMapping("usunStudenta")
-    public Mono<Integer> usunStudenta(@RequestParam("id") int id) {
+    @GetMapping("usunStudenta/{id}")
+    public Mono<Integer> usunStudenta(@PathVariable("id") int id) {
         return studentService.deleteStudent(id);
     }
 
